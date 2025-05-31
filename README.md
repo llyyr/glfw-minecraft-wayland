@@ -1,3 +1,30 @@
+## Introduction
+
+This glfw fork has the necessary changes to run Minecraft natively on Wayland, 
+without compatibility layers like xwayland.
+
+## Usage
+
+To make Minecraft use this library, you must pass the following Java arguments:
+
+```
+-XX:+UnlockExperimentalVMOptions -Dorg.lwjgl.glfw.libname=/path/to/libglfw.so.3.5
+```
+
+Replace `/path/to/libglfw.so.3.5` with the actual path to the compiled shared library from this repository.
+
+## Building
+
+```bash
+cmake -B build .
+cmake --build build
+```
+
+It shouldn't be necessary to install this library, just point Java to the built 
+.so file location.
+
+---
+
 # GLFW
 
 [![Build status](https://github.com/glfw/glfw/actions/workflows/build.yml/badge.svg)](https://github.com/glfw/glfw/actions)
