@@ -454,7 +454,8 @@ GLFWAPI void glfwWindowHintString(int hint, const char* value)
         case GLFW_X11_INSTANCE_NAME:
             strncpy(_glfw.hints.window.x11.instanceName, value,
                     sizeof(_glfw.hints.window.x11.instanceName) - 1);
-            return;
+            if (_glfw.hints.window.wl.appId[0] != '\0')
+                return;
         case GLFW_WAYLAND_APP_ID:
             strncpy(_glfw.hints.window.wl.appId, value,
                     sizeof(_glfw.hints.window.wl.appId) - 1);
